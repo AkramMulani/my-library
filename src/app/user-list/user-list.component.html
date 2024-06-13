@@ -1,0 +1,29 @@
+<div class="container">
+
+  <table class="table table-striped my-3">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Username</th>
+        <th scope="col">Email Address</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users; let i = index" (click)="selectedName=user.username">
+        <th scope="row">{{i+1}}</th>
+        <td>{{user.username}}</td>
+        <td>
+          <p><a href="mailto:{{user.email}}" class="link-body-emphasis link-offset-2 link-underline-opacity-0 link-underline-opacity-75-hover">
+            {{user.email}}
+          </a></p>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="d-inline-flex gap-1">
+    <button type="button" class="btn btn-danger mx-3" (click)="deleteUser()">Delete User</button>
+    <b class="mx-3" style="color: red;" *ngIf="selectedName">Note: Selected {{selectedName}}</b>
+  </div>
+
+</div>
